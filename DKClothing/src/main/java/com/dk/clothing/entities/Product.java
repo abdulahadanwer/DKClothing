@@ -37,24 +37,40 @@ public class Product implements Serializable {
 	@Column(name="total_items")
 	private int totalItems;
 
-	//bi-directional many-to-one association to ProductsCdtb
-	@ManyToOne
-	@JoinColumn(name="product_cd")
-	private ProductsCdtb productsCdtb;
+	//bi-directional many-to-one association to Denim
+	@OneToMany(mappedBy="product")
+	private List<Denim> denims;
+
+	//bi-directional many-to-one association to LadiesApparel
+	@OneToMany(mappedBy="product")
+	private List<LadiesApparel> ladiesApparels;
+
+	//bi-directional many-to-one association to Legging
+	@OneToMany(mappedBy="product")
+	private List<Legging> leggings;
 
 	//bi-directional many-to-one association to ProductsColorCdtb
 	@ManyToOne
 	@JoinColumn(name="color_cd")
 	private ProductsColorCdtb productsColorCdtb;
 
-	//bi-directional many-to-one association to Sock
-	@OneToMany(mappedBy="product")
-	private List<Sock> socks;
+	//bi-directional many-to-one association to ProductsCdtb
+	@ManyToOne
+	@JoinColumn(name="product_cd")
+	private ProductsCdtb productsCdtb;
 
 	//bi-directional many-to-one association to SexCdtb
 	@ManyToOne
 	@JoinColumn(name="sex_cd")
 	private SexCdtb sexCdtb;
+
+	//bi-directional many-to-one association to ProductsImage
+	@OneToMany(mappedBy="product")
+	private List<ProductsImage> productsImages;
+
+	//bi-directional many-to-one association to Sock
+	@OneToMany(mappedBy="product")
+	private List<Sock> socks;
 
 	public Product() {
 	}
@@ -107,12 +123,70 @@ public class Product implements Serializable {
 		this.totalItems = totalItems;
 	}
 
-	public ProductsCdtb getProductsCdtb() {
-		return this.productsCdtb;
+	public List<Denim> getDenims() {
+		return this.denims;
 	}
 
-	public void setProductsCdtb(ProductsCdtb productsCdtb) {
-		this.productsCdtb = productsCdtb;
+	public void setDenims(List<Denim> denims) {
+		this.denims = denims;
+	}
+
+	public Denim addDenim(Denim denim) {
+		getDenims().add(denim);
+		denim.setProduct(this);
+
+		return denim;
+	}
+
+	public Denim removeDenim(Denim denim) {
+		getDenims().remove(denim);
+		denim.setProduct(null);
+
+		return denim;
+	}
+
+	public List<LadiesApparel> getLadiesApparels() {
+		return this.ladiesApparels;
+	}
+
+	public void setLadiesApparels(List<LadiesApparel> ladiesApparels) {
+		this.ladiesApparels = ladiesApparels;
+	}
+
+	public LadiesApparel addLadiesApparel(LadiesApparel ladiesApparel) {
+		getLadiesApparels().add(ladiesApparel);
+		ladiesApparel.setProduct(this);
+
+		return ladiesApparel;
+	}
+
+	public LadiesApparel removeLadiesApparel(LadiesApparel ladiesApparel) {
+		getLadiesApparels().remove(ladiesApparel);
+		ladiesApparel.setProduct(null);
+
+		return ladiesApparel;
+	}
+
+	public List<Legging> getLeggings() {
+		return this.leggings;
+	}
+
+	public void setLeggings(List<Legging> leggings) {
+		this.leggings = leggings;
+	}
+
+	public Legging addLegging(Legging legging) {
+		getLeggings().add(legging);
+		legging.setProduct(this);
+
+		return legging;
+	}
+
+	public Legging removeLegging(Legging legging) {
+		getLeggings().remove(legging);
+		legging.setProduct(null);
+
+		return legging;
 	}
 
 	public ProductsColorCdtb getProductsColorCdtb() {
@@ -121,6 +195,44 @@ public class Product implements Serializable {
 
 	public void setProductsColorCdtb(ProductsColorCdtb productsColorCdtb) {
 		this.productsColorCdtb = productsColorCdtb;
+	}
+
+	public ProductsCdtb getProductsCdtb() {
+		return this.productsCdtb;
+	}
+
+	public void setProductsCdtb(ProductsCdtb productsCdtb) {
+		this.productsCdtb = productsCdtb;
+	}
+
+	public SexCdtb getSexCdtb() {
+		return this.sexCdtb;
+	}
+
+	public void setSexCdtb(SexCdtb sexCdtb) {
+		this.sexCdtb = sexCdtb;
+	}
+
+	public List<ProductsImage> getProductsImages() {
+		return this.productsImages;
+	}
+
+	public void setProductsImages(List<ProductsImage> productsImages) {
+		this.productsImages = productsImages;
+	}
+
+	public ProductsImage addProductsImage(ProductsImage productsImage) {
+		getProductsImages().add(productsImage);
+		productsImage.setProduct(this);
+
+		return productsImage;
+	}
+
+	public ProductsImage removeProductsImage(ProductsImage productsImage) {
+		getProductsImages().remove(productsImage);
+		productsImage.setProduct(null);
+
+		return productsImage;
 	}
 
 	public List<Sock> getSocks() {
@@ -143,14 +255,6 @@ public class Product implements Serializable {
 		sock.setProduct(null);
 
 		return sock;
-	}
-
-	public SexCdtb getSexCdtb() {
-		return this.sexCdtb;
-	}
-
-	public void setSexCdtb(SexCdtb sexCdtb) {
-		this.sexCdtb = sexCdtb;
 	}
 
 }
