@@ -10,7 +10,7 @@
 		<link rel="stylesheet" th:href="@{/css/style.css}"></link>
 	</head>
 	<body>
-		<div th:include="header :: header"></div>
+		<div th:replace="fragments/header :: header"></div>
 		<a th:href="@{/inventory}">Back</a><br></br>
 		<h2>Products in the Inventory</h2>
 		<div th:unless="${#lists.isEmpty(productsList)}">
@@ -73,6 +73,9 @@
 	            </table>
 	            <button type="submit">Submit</button>
         	</form>
-		<div class="footer" th:include="footer :: site-footer"></div>
+		<div class="footer" th:include="fragments/footer :: site-footer"></div>
+		<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+  		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  		<!-- <script type="text/javascript" th:src="@{/js/script.js}"></script> -->
 	</body>
 </html>

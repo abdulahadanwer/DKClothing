@@ -4,19 +4,33 @@
 
  <head>
 	<meta charset="utf-8"></meta>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>		
-	<title>Edge Garments</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>		
+	<title>D&amp;K Clothing</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"></link>
-	<link rel="stylesheet" th:href="@{/css/style.css}"></link>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
  </head>
 
   <body>
-  	<div th:insert="header :: header"></div>
-  	<h2>Welcome to our Edge store!</h2>
+  	<div th:replace="fragments/header :: header"></div>
+  	<!-- <header>
+   			<nav id="header-nav" class="navbar navbar-default">
+   				<div class="container">
+   					<div class="navbar-header">
+   						<a th:href="@{/}" class="">
+   							<div id="logo-image" alt="DK Clothing"></div>
+   						</a>
+   					</div>
+   				</div>
+   			</nav>
+   	</header> -->
+  	<h2>Welcome to D&amp;K Clothing Co.!</h2>
     <p>Find below links to important resources</p>
   	<a th:href="@{/inventory}">Inventory</a>
-  	<div class="footer" th:include="footer :: site-footer"></div>
+  	<div class="footer" th:include="fragments/footer :: site-footer"></div>
+  	<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+  	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  	<!-- <script type="text/javascript" th:src="@{/js/script.js}"></script> -->
   </body>
 
 </html>
