@@ -2,35 +2,23 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 
- <head>
-	<meta charset="utf-8"></meta>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>		
-	<title>D&amp;K Clothing</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"></link>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
- </head>
-
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+	<title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+  </head>
   <body>
   	<div th:replace="fragments/header :: header"></div>
-  	<!-- <header>
-   			<nav id="header-nav" class="navbar navbar-default">
-   				<div class="container">
-   					<div class="navbar-header">
-   						<a th:href="@{/}" class="">
-   							<div id="logo-image" alt="DK Clothing"></div>
-   						</a>
-   					</div>
-   				</div>
-   			</nav>
-   	</header> -->
-  	<h2>Welcome to D&amp;K Clothing Co.!</h2>
+  
+  	<div>Welcome to D&amp;K Clothing Co.!</div>
     <p>Find below links to important resources</p>
   	<a th:href="@{/inventory}">Inventory</a>
-  	<div class="footer" th:include="fragments/footer :: site-footer"></div>
-  	<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
-  	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-  	<!-- <script type="text/javascript" th:src="@{/js/script.js}"></script> -->
+  	<div th:include="fragments/footer :: site-footer"></div>
   </body>
 
 </html>

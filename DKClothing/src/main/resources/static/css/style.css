@@ -1,22 +1,34 @@
 body {
-font-size: 16px;
-background-color: #ffffff;
-font-family: arial,helvetica,sans-serif;
+	font-size: 16px;
+	color:green;
+	background-color: #ffffff;
+	font-family: arial,helvetica,sans-serif;
 }
 
-/**Header Nav*/
+/**Header Nav -- The top Red stripe*/
 #header-nav{
-  background-color:#00f200;
-  border-radius:0;
-  border:0;	
+	background-color:#a40632;
+  	border-radius:0;
+  	border:0;	
 }
 
-/**Logo properties*/
-#logo-image{
-	background:url('../images/DKLogo_bg_1.png') no-repeat;
-	width:180px;
-	height:95px;
-	margin:10px 15px 10px 0;		
+.links-text-top-header { /** login and bag links*/
+	font-size: 12pt;
+	font-weight: bold;
+	padding-right: 30px;
+}
+
+.links-social-media { /** Social media links*/
+	padding-right: 20px;
+}
+
+.social-media-dimensions{
+	width: 35px;
+    height: 35px;
+}
+
+.form-inline a:hover, .form-inline a:focus{
+    text-decoration: none;
 }
 
 .colorHeadline {
@@ -48,10 +60,10 @@ padding: 5px;
 margin: 10px 0;
 text-align: center;
 }
+
 .footer {
-background: #00592d;
-padding: 5px;
-margin: 10px 0;
-color:#ffffff;
-text-align: center;
+	background: #f8f9fa;
+	padding: 5px;
+	margin: 10px 0;
+	color:#000000;
 }

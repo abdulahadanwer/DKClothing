@@ -1,16 +1,104 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
- <head>	<meta charset="utf-8"></meta>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
- 		<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"></link>
-		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
- </head>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+  </head>
   <body>
     <div th:fragment="site-footer">
-      &copy; 2017 D&amp;K Clothing Co.
-    </div>
+    	<footer class="footer">
+    		<div class="container">
+	    		<nav class="navbar navbar-light bg-light justify-content-between">
+				  <span>Get connected with us on social Networks!</span>
+				  <form class="form-inline">
+					  	<a th:href="@{/}">
+						   <img src="/images/logo_facebook.png"  class="d-inline-block align-top social-media-dimensions" alt="Login"></img>
+						   <span class="links-social-media"></span> 
+						</a>
+						<a th:href="@{/}">
+						   <img src="/images/logo_twitter.png"  class="d-inline-block align-top social-media-dimensions" alt="Login"></img>
+						   <span class="links-social-media"></span> 
+						</a>
+						<a th:href="@{/}">
+						   <img src="/images/logo_linkedin.png"  class="d-inline-block align-top social-media-dimensions" alt="Login"></img>
+						   <span class="links-social-media"></span> 
+						</a>
+						<!-- <a th:href="@{/}">
+						   <img src="/images/logo_googleplus.png"  class="d-inline-block align-top social-media-dimensions" alt="Login"></img>
+						   <span class="links-social-media"></span> 
+						</a> -->
+						<a th:href="@{/}">
+						   <img src="/images/logo_instagram.png"  class="d-inline-block align-top social-media-dimensions" alt="Login"></img>
+						   <span class="links-social-media"></span>
+						</a>
+						<a th:href="@{/}">
+						   <img src="/images/logo_snapchat.png"  class="d-inline-block align-top social-media-dimensions" alt="Login"></img>
+						   <span class="links-social-media"></span> 
+						</a>
+						<a th:href="@{/}">
+						   <img src="/images/logo_pinterest.png"  class="d-inline-block align-top social-media-dimensions" alt="Login"></img>
+						   <span class="links-social-media"></span> 
+						</a>
+						<!-- <a th:href="@{/}">
+						   <img src="/images/logo_tumblr.png"  class="d-inline-block align-top social-media-dimensions" alt="Login"></img>
+						   <span class="links-social-media"></span>
+						</a> -->
+					  <!--   <input class="form-control mr-sm-2" type="Email Address" placeholder="Your Email Address" aria-label="Email Address"></input>
+					    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button> -->
+				  </form>
+			    </nav>
+		    </div>
+		    <div class="container mt-5 mb-4 text-center text-md-left">
+		        <div class="row mt-3">
+		
+		            <!--First column-->
+		            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-r">
+		                <h6 class="title font-bold"><strong>D&amp;K Clothing Co.</strong></h6>
+		                <p><a href="#!">Contact Us</a></p>
+		                <p><a href="#!">About Us</a></p>
+		                <!-- <p> <form class="form-inline">
+						    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+						    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+						  </form></p> -->
+		            </div>
+		            <!--/.First column-->
+		
+		            <!--Second column-->
+		            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-r">
+		                <h6 class="title font-bold"><strong>Privacy &amp; Security </strong></h6>
+		               <!--  <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;"></hr> -->
+		                <p><a href="#!">Terms of Use</a></p>
+		                <p><a href="#!">Site map</a></p>
+		            </div>
+		            <!--/.Second column-->
+		
+		            <!--Third column-->
+		            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-r">
+		                <h6 class="title font-bold"><strong>Returns &amp; Exchanges</strong></h6>
+		                <p><a href="#!">Coupons/Promotions</a></p>
+		                <p><a href="#!">Gift Cards</a></p>
+		                <p><a href="#!">Sizing Chart</a></p>
+		            </div>
+		            <!--/.Third column-->
+		
+		        </div>
+		    </div>
+    <!--/.Footer Links-->
+    	</footer>
+            
+	    <!-- Optional JavaScript -->
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     </div>
   </body>
 </html>
 
