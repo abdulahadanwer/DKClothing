@@ -9,66 +9,71 @@
 	   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
 	   <title>Product Color</title>
 	   <!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
-	    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+	   <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header"></div>
-		<a th:href="@{/inventory}">Back</a><br></br>
-		<h2>Colors in the Inventory</h2>
-		<div class="container" th:unless="${#lists.isEmpty(productsColorList)}">
-			 <table class="table table-bordered">
-			 	<thead>
-			      <tr>
-			        <th>COLOR CODE</th>
-			        <th>COLOR SHORT DESCRIPTION</th>
-			        <th>COLOR LONG DESCRIPTION</th>
-			      </tr>
-			     </thead>
-			     <tbody>
-				     <tr th:each="color : ${productsColorList}">
-				        <td th:text="${color.colorCd}">Color Code</td>
-				        <td th:text="${color.colorShortDesc}">Color Short Description</td>
-				        <td th:text="${color.colorLongDesc}">Color Long Description</td>
+		<div class="container">
+			<a th:href="@{/inventory}">Back</a><br></br>
+			<h2>Colors in the Inventory</h2>
+			
+			<div th:unless="${#lists.isEmpty(productsColorList)}">
+				 <table class="table table-bordered">
+				 	<thead>
+				      <tr>
+				        <th>COLOR CODE</th>
+				        <th>COLOR SHORT DESCRIPTION</th>
+				        <th>COLOR LONG DESCRIPTION</th>
 				      </tr>
-				  </tbody>
-		    </table>
-		</div>
-		<div th:if="${#lists.isEmpty(productsColorList)}">
-			<p>There is no Product Color in the inventory</p>
-		</div>
-		<br></br>
-		<hr></hr>
-		<div th:if="${not #strings.isEmpty(success)}">
-			<p class="successMsg" th:text="${success}"></p>
-		</div>
-		<div th:if="${not #strings.isEmpty(failure)}">
-			<p class="failureMsg" th:text="${failure}"></p>
-		</div>
-		<div th:if="${not #strings.isEmpty(warning)}">
-			<p class="warningMsg" th:text="${warning}"></p>
-		</div>
-		<h3>Add a new Color</h3>
-			 <form action="#" th:action="@{/addProductColor}" th:object="${productColor}" method="post">
-	            <table>
-	                <tr>
-	                    <td>Color Code* (min 1, max 2 char.):</td>
-	                    <td><input type="text" th:field="*{colorCd}" /></td>
-	                    <td th:if="${#fields.hasErrors('colorCd')}" th:errors="*{colorCd}" class="errorColorDescription">Error with Color Code</td>
-	                </tr>
-	                <tr>
-	                    <td>Short Description* (min 1, max 45 chars.):</td>
-	                    <td><input type="text" th:field="*{colorShortDesc}" /></td>
-	                    <td th:if="${#fields.hasErrors('colorShortDesc')}" th:errors="*{colorShortDesc}" class="errorColorDescription">Error with Short Description</td>
-	                </tr>
-	                 <tr>
-	                    <td>Long Description* (min 1, max 60 char):</td>
-	                    <td><input type="text" th:field="*{colorLongDesc}" /></td>
-	                    <td th:if="${#fields.hasErrors('colorLongDesc')}" th:errors="*{colorLongDesc}" class="errorColorDescription">Error with Long Description</td>
-	                </tr>
-	            </table>
-	            <button type="submit">Submit</button>
-        	</form>
+				     </thead>
+				     <tbody>
+					     <tr th:each="color : ${productsColorList}">
+					        <td th:text="${color.colorCd}">Color Code</td>
+					        <td th:text="${color.colorShortDesc}">Color Short Description</td>
+					        <td th:text="${color.colorLongDesc}">Color Long Description</td>
+					      </tr>
+					  </tbody>
+			    </table>
+			</div>
+			<div th:if="${#lists.isEmpty(productsColorList)}">
+				<p>There is no Product Color in the inventory</p>
+			</div>
+			<br></br>
+			<hr></hr>
+			<div th:if="${not #strings.isEmpty(success)}">
+				<p class="successMsg" th:text="${success}"></p>
+			</div>
+			<div th:if="${not #strings.isEmpty(failure)}">
+				<p class="failureMsg" th:text="${failure}"></p>
+			</div>
+			<div th:if="${not #strings.isEmpty(warning)}">
+				<p class="warningMsg" th:text="${warning}"></p>
+			</div>
+			<div>
+				<h3>Add a new Color</h3>
+				<form action="#" th:action="@{/addProductColor}" th:object="${productColor}" method="post">
+					<table class="table table-bordered">
+						<tr>
+							<td>Color Code* (min 1, max 2 char.):</td>
+			                <td><input type="text" th:field="*{colorCd}" /></td>
+			                <td th:if="${#fields.hasErrors('colorCd')}" th:errors="*{colorCd}" class="errorColorDescription">Error with Color Code</td>
+			            </tr>
+			            <tr>
+			                <td>Short Description* (min 1, max 45 chars.):</td>
+			                <td><input type="text" th:field="*{colorShortDesc}" /></td>
+			                <td th:if="${#fields.hasErrors('colorShortDesc')}" th:errors="*{colorShortDesc}" class="errorColorDescription">Error with Short Description</td>
+			            </tr>
+			            <tr>
+			                <td>Long Description* (min 1, max 60 char):</td>
+			                <td><input type="text" th:field="*{colorLongDesc}" /></td>
+			                <td th:if="${#fields.hasErrors('colorLongDesc')}" th:errors="*{colorLongDesc}" class="errorColorDescription">Error with Long Description</td>
+			             </tr>
+			         </table>
+			         <button type="submit" class="btn btn-primary">Submit</button>
+		        </form>
+	        </div>
+        </div>
 		<div class="footer" th:include="fragments/footer :: site-footer"></div>
 	</body>
 </html>

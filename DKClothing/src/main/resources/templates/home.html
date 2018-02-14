@@ -14,10 +14,11 @@
   </head>
   <body>
   	<div th:replace="fragments/header :: header"></div>
-  
-  	<div>Welcome to D&amp;K Clothing Co.!</div>
-    <p>Find below links to important resources</p>
-  	<a th:href="@{/inventory}">Inventory</a>
+	<div class="container">  
+  		<div>Welcome to D&amp;K Clothing Co.!</div>
+    	<p>Find below links to important resources</p>
+  		<a th:href="@{/inventory}">Inventory</a>
+  	</div>
   	<div th:include="fragments/footer :: site-footer"></div>
   </body>
 

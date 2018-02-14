@@ -9,15 +9,17 @@
 	   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
 	   <title>Inventory Section</title>
 	   <!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
-	    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+	   <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header"></div>
-		<h2>Select the following to modify</h2>
-		<a th:href="@{/}">Home</a><br/>
-		<a th:href="@{/getProductColor/nm}">Add Product Color</a><br/>
-		<a th:href="@{/getProduct/nm}">Add/Update a Product</a><br/>
+		<div class="container">
+			<h2>Select the following to modify</h2>
+			<a th:href="@{/}">Home</a><br/>
+			<a th:href="@{/getProductColor/nm}">Add Product Color</a><br/>
+			<a th:href="@{/getProduct/nm}">Add/Update a Product</a><br/>
+		</div>
 		<div class="footer" th:include="fragments/footer :: site-footer"></div>
 	</body>
 </html>
