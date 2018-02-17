@@ -21,4 +21,6 @@ public final class ProductConstants {
 	 public static final String WARNING_MESSAGE = "WARrniiinn36939588sfd5e2d4d5e8s5f4fredds5s58e_=+sdfdfdsee+-*6522+233852390dkenedkkujnngguuendhyyyyyyyy";	 
 	 
 	 public static final String RESISTANCE_BELT_CD = "RB";
+	 
+	 public static final String LADIES_DENIM_CD = "LD";
 }

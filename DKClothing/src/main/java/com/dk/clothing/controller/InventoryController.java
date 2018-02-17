@@ -121,10 +121,14 @@ public class InventoryController {
 		
 		ProductsCdtb product = productService.findByProductCd(productCd);
 		model.addAttribute("product", product);
-		if(!productCd.equals(ProductConstants.RESISTANCE_BELT_CD)) 
-			return "undevelopedProduct";
+		switch(productCd) {
+		 case "LD":
+			 return "redirect:/denim";
+		 case "RB":
+		 	return "redirect:/resistanceBelt";
+		}
 		
-		return "resistanceBelt";
+		return "undevelopedProduct";
 	}
 	
 }
