@@ -21,9 +21,6 @@ import com.dk.clothing.service.ProductService;
 public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
-	private ProductRepository productRepository;
-	
-	@Autowired
 	private ProductsCdtbRepository productsCdtbRepository;
 	
 	@Autowired

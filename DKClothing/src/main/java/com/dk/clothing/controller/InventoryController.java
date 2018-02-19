@@ -123,7 +123,7 @@ public class InventoryController {
 		model.addAttribute("product", product);
 		switch(productCd) {
 		 case "LD":
-			 return "redirect:/denim";
+			 return "redirect:/ladiesDenim";
 		 case "RB":
 		 	return "redirect:/resistanceBelt";
 		}

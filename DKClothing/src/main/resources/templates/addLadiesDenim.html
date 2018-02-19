@@ -6,7 +6,7 @@
 	   <meta charset="utf-8"></meta>
 	   <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 	   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-	   <title>Add a Product in the inventory</title>
+	   <title>Add to the Ladies Denim</title>
 	   <!-- Bootstrap CSS -->
 	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
 	   <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
@@ -15,40 +15,48 @@
 		<div th:replace="fragments/header :: header"></div>
 		<div class="container">
 			<a th:href="@{/inventory}">Back</a><br></br>
-			<h2>Products in the Inventory</h2>
-			<div th:unless="${#lists.isEmpty(productsList)}">
-				<table class="table table-bordered">
-				 	<thead>
-				      <tr>
-				        <th>PRODUCT CODE</th>
-				        <th>PRODUCT NAME</th>
-				        <th>PRODUCT SHORT DESCRIPTION</th>
-				        <th>PRODUCT LONG DESCRIPTION</th>
-				      </tr>
-				     </thead>
-				     <tbody>
-					     <tr th:each="product : ${productsList}">
-					        <td th:text="${product.productCd}">Product Code</td>
-					        <td><a th:text="${product.productName}" th:href="@{/updateProduct/{productCd}(productCd=${product.productCd})}"></a></td>
-					        <td th:text="${product.productShortDesc}">Product Short Description</td>
-					        <td th:text="${product.productLongDesc}">Product Long Description</td>
-					      </tr>
-					  </tbody>
-			    </table>
-			</div>
-			<div th:if="${#lists.isEmpty(productsList)}">
-				<p>There is no Product in the inventory</p>
-			</div>
-			<div th:if="${not #strings.isEmpty(success)}">
-				<p class="successMsg" th:text="${success}"></p>
-			</div>
-			<div th:if="${not #strings.isEmpty(failure)}">
-				<p class="failureMsg" th:text="${failure}"></p>
-			</div>
-			<div th:if="${not #strings.isEmpty(alreadyExisting)}">
-				<p class="warningMsg" th:text="${alreadyExisting}"></p>
-			</div>
-			<h3>Add a new Product</h3>
+			<h2>Add items to the ladies Denim inventory</h2>
+			
+			<form action="#" th:action="@{/submitLadiesDenim}" th:object="${product}" method="post">
+			  <div th:if="${#fields.hasAnyErrors()}">
+				  <p th:each="err : ${#fields.allErrors()}" class="errorColorDescription" th:text="${err}">...</p>
+			  </div>
+			  <div class="form-row">
+			    <div class="col-md-6 mb-3">
+			      <label for="validationDefault01">Total Number of Items*</label>
+			      <input type="text" class="form-control" id="validationDefault01" placeholder="Total Number of Items" th:required="required"
+			      	oninvalid="this.setCustomValidity('Enter Total Number of Items')" onchange="this.setCustomValidity('')"
+			      	th:field="*{totalItems}"></input>
+			    </div>
+			    <div class="col-md-6 mb-3">
+			      <label for="validationDefault02">Price Per Unit*</label>
+			      <input type="text" class="form-control" id="validationDefault02" placeholder="Price Per Unit" th:required="required"
+			      	oninvalid="this.setCustomValidity('Enter Price Per Unit')" onchange="this.setCustomValidity('')"
+			      	th:field="*{pricePerUnit}"></input>
+			    </div>
+			  </div>
+			  <div class="form-row">
+			    <div class="col-md-4 mb-3">
+			      <label for="validationDefault03">Included Year*</label>
+			      <input type="text" class="form-control" id="validationDefault03" placeholder="Included Year" th:required="required"
+			      	oninvalid="this.setCustomValidity('Enter Included Year')" onchange="this.setCustomValidity('')"
+			      	th:field="*{includedYear}"></input>
+			    </div>
+			    <div class="col-md-4 mb-3">
+			      <label for="validationDefault04">Color*</label>
+			      <input type="text" class="form-control" id="validationDefault04" placeholder="State" th:required="required"
+			      th:field="*{includedYear}"></input>
+			    </div>
+			    <div class="col-md-4 mb-3">
+			      <label for="validationDefault05">Images</label>
+			      <input type="text" class="form-control" id="validationDefault05" placeholder="Images"
+			      th:field="*{includedYear}"></input>
+			    </div>
+			  </div>
+			  <button class="btn btn-primary" type="submit">Add Item(s)</button>
+			</form>
+			
+			<!-- <h3>Add a new </h3>
 			<form action="#" th:action="@{/addProduct}" th:object="${product}" method="post">
 			 	<table class="table table-bordered">
 			 		<tr>
@@ -73,7 +81,7 @@
 			          </tr>
 			     </table>
 			     <button type="submit" class="btn btn-primary">Submit</button>
-		    </form>
+		    </form> -->
         </div>
 		<div class="footer" th:include="fragments/footer :: site-footer"></div>
 	</body>

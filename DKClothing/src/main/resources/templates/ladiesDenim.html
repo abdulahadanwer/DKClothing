@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+		 <!-- Required meta tags -->
+	   <meta charset="utf-8"></meta>
+	   <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+	   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+	   <title>Ladies Denim</title>
+	   <!-- Bootstrap CSS -->
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+	   <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+	</head>
+	<body>
+		<div th:replace="fragments/header :: header"></div>
+		<div class="container">
+			<a th:href="@{/inventory}">Back</a><br></br>
+			<h2>Available Ladies Denim in the inventory</h2>
+			<div th:unless="${#lists.isEmpty(ladiesDenimList)}">
+				<table class="table table-bordered">
+				 	<thead>
+				      <tr>
+				      	<th>PRODUCT ID</th>
+				      	<th>PRODUCT CODE</th>
+				        <th>COLOR CODE</th>
+				        <th>iNCLUDED YEAR</th>
+				        <th>PRICE PER UNIT</th>
+				        <th>TOTAL NO. OF ITEMS</th>
+				        <th>CREATED DATE</th>
+				        <th>UPDATED DATE</th>
+				      </tr>
+				     </thead>
+				     <tbody>
+					     <tr th:each="ladiesDenim : ${ladiesDenimList}">
+					        <td><a th:text="${ladiesDenim.productId}" th:href="@{/home}"></a></td>
+					        <td th:text="${ladiesDenim.productsCdtb.productCd}">Product Code</td>
+					        <td th:text="${ladiesDenim.productsColorCdtb.colorShortDesc}">Color Code</td>
+					        <td th:text="${ladiesDenim.includedYear}">Included Year</td>
+					        <td th:text="${ladiesDenim.pricePerUnit}">Price Per Unit</td>
+					        <td th:text="${ladiesDenim.totalItems}">Total Items</td>
+					        <td th:text="${ladiesDenim.cretDate}">CREATED DATE</td>
+					        <td th:text="${ladiesDenim.cretUid}">CREATED ID</td>
+					        <td th:text="${ladiesDenim.updtDate}">UPDATED DATE</td>
+					        <td th:text="${ladiesDenim.updtUid}">UPDATED ID</td>
+					      </tr>
+					  </tbody>
+			    </table>
+			</div>
+			<div th:if="${#lists.isEmpty(ladiesDenimList)}">
+				<p>There is no Product in the inventory</p>
+			</div>
+			<a class="btn btn-primary" th:href="@{/addLadiesDenim}" role="button">Add Ladies Denim</a>			
+        </div>
+		<div class="footer" th:include="fragments/footer :: site-footer"></div>
+	</body>
+</html>
