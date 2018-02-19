@@ -21,23 +21,23 @@ public class ProductsCdtb implements Serializable {
 	@Id
 	@Column(name="product_cd")
 	@NotNull
-    @Size(min=1, max=2)
+    @Size(min=1, max=2, message="{productCd.size}")
 	private String productCd;
 	
 	@Column(name="product_long_desc")
 	@NotNull
-    @Size(min=1, max=60)
+    @Size(min=1, max=60, message="{longDescription.size}")
 	private String productLongDesc;
-
-	@Column(name="product_name")
-	@NotNull
-    @Size(min=1, max=45)
-	private String productName;
 
 	@Column(name="product_short_desc")
 	@NotNull
-    @Size(min=1, max=45)
+    @Size(min=1, max=45, message="{shortDescription.size}")
 	private String productShortDesc;
+	
+	@Column(name="product_name")
+	@NotNull
+    @Size(min=1, max=45, message="{productName.size}")
+	private String productName;
 
 	//bi-directional many-to-one association to Product
 	@OneToMany(mappedBy="productsCdtb")

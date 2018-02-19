@@ -23,22 +23,22 @@
 			  </div>
 			  <div class="form-row">
 			    <div class="col-md-6 mb-3">
-			      <label for="validationDefault01">Total Number of Items*</label>
-			      <input type="text" class="form-control" id="validationDefault01" placeholder="Total Number of Items" th:required="required"
+			      <label for="totalItems">Total Number of Items*</label>
+			      <input type="number" class="form-control" id="totalItems" placeholder="Total Number of Items" th:required="required"
 			      	oninvalid="this.setCustomValidity('Enter Total Number of Items')" onchange="this.setCustomValidity('')"
 			      	th:field="*{totalItems}"></input>
 			    </div>
 			    <div class="col-md-6 mb-3">
-			      <label for="validationDefault02">Price Per Unit*</label>
-			      <input type="text" class="form-control" id="validationDefault02" placeholder="Price Per Unit" th:required="required"
+			      <label for="pricePerUnit">Price Per Unit*</label>
+			      <input type="number" class="form-control" id="pricePerUnit" placeholder="Price Per Unit" th:required="required"
 			      	oninvalid="this.setCustomValidity('Enter Price Per Unit')" onchange="this.setCustomValidity('')"
 			      	th:field="*{pricePerUnit}"></input>
 			    </div>
 			  </div>
 			  <div class="form-row">
 			    <div class="col-md-4 mb-3">
-			      <label for="validationDefault03">Included Year*</label>
-			      <input type="text" class="form-control" id="validationDefault03" placeholder="Included Year" th:required="required"
+			      <label for="includedYear">Included Year*</label>
+			      <input type="number" class="form-control" id="includedYear" placeholder="Included Year" th:required="required"
 			      	oninvalid="this.setCustomValidity('Enter Included Year')" onchange="this.setCustomValidity('')"
 			      	th:field="*{includedYear}"></input>
 			    </div>

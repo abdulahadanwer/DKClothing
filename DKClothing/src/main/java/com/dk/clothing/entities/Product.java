@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Range;
+
 import java.util.Date;
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class Product implements Serializable {
 	
 	@Column(name="included_year")
 	@NotNull
+	@Range(min = 2017, message="{includedYear.minYear}")
 	private Integer includedYear;
 
 	@Column(name="price_per_unit")
