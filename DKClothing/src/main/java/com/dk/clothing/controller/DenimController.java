@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dk.clothing.entities.Product;
 import com.dk.clothing.service.DenimService;
+import com.dk.clothing.service.ProductService;
 
 @Controller
 public class DenimController {
 	
 	@Autowired
 	private DenimService denimService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	@RequestMapping(value="/ladiesDenim", method=RequestMethod.GET)
 	public String getDenimInInventory(Model model) {
@@ -28,6 +32,7 @@ public class DenimController {
 	@RequestMapping(value="/addLadiesDenim", method=RequestMethod.GET)
 	public String addLadiesDenim(Model model) {
 		model.addAttribute("product", new Product());
+		model.addAttribute("productsColorList", productService.findAllProductColors()); 
 		return "addLadiesDenim";
 	}
 	

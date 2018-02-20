@@ -42,46 +42,40 @@
 			      	oninvalid="this.setCustomValidity('Enter Included Year')" onchange="this.setCustomValidity('')"
 			      	th:field="*{includedYear}"></input>
 			    </div>
-			    <div class="col-md-4 mb-3">
-			      <label for="validationDefault04">Color*</label>
-			      <input type="text" class="form-control" id="validationDefault04" placeholder="State" th:required="required"
-			      th:field="*{includedYear}"></input>
+			    <div class="form-group col-md-4">
+			      <label for="productsColorCdtb.colorCd">Color*</label>
+			      <select th:field="*{productsColorCdtb.colorCd}" class="form-control">
+			        <option selected="selected" th:value="0">-- Select --</option>
+		          	<option th:each="color : ${productsColorList}" 
+		                  th:value="${color.colorCd}" 
+		                  th:text="${color.colorShortDesc}">Thymus Thymi</option>
+		          </select>
+			      <!-- <select id="productsColorCdtb.colorCd" class="form-control">
+			        <option selected>Choose...</option>
+			        <option>...</option>
+			      </select> -->
 			    </div>
+			    <!-- <div class="col-md-4 mb-3">
+			      <label for="productsColorCdtb.colorCd">Color*</label>
+			      <input type="text" class="form-control" id="productsColorCdtb.colorCd" placeholder="Color" th:required="required"
+			      th:field="*{productsColorCdtb.colorCd}"></input>
+			    </div> -->
 			    <div class="col-md-4 mb-3">
-			      <label for="validationDefault05">Images</label>
-			      <input type="text" class="form-control" id="validationDefault05" placeholder="Images"
+			      <label for="validationDefault05">Size*</label>
+			      <input type="text" class="form-control" id="validationDefault05" placeholder="Size" th:required="required"
 			      th:field="*{includedYear}"></input>
 			    </div>
 			  </div>
+			  <div class="form-row">
+			    <div class="col-md-4 mb-3">
+			      <label for="includedYear">Images</label>
+			      <input type="number" class="form-control" id="includedYear" placeholder="Images" 
+			      	oninvalid="this.setCustomValidity('Enter Included Year')" onchange="this.setCustomValidity('')"
+			      	th:field="*{includedYear}"></input>
+			    </div>			    
+			  </div>
 			  <button class="btn btn-primary" type="submit">Add Item(s)</button>
 			</form>
-			
-			<!-- <h3>Add a new </h3>
-			<form action="#" th:action="@{/addProduct}" th:object="${product}" method="post">
-			 	<table class="table table-bordered">
-			 		<tr>
-			 			<td>Product Code* (min 1, max 2 char.):</td>
-			            <td><input type="text" th:field="*{productCd}" /></td>
-			            <td th:if="${#fields.hasErrors('productCd')}" th:errors="*{productCd}" class="errorColorDescription">Error with product Code</td>
-			         </tr>
-			         <tr>
-			             <td>Product Name* (min 1, max 45 char.):</td>
-			             <td><input type="text" th:field="*{productName}" /></td>
-			             <td th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}" class="errorColorDescription">Error with product name</td>
-			         </tr>
-			         <tr>
-			             <td>Short Description* (min 1, max 45 chars.):</td>
-			             <td><input type="text" th:field="*{productShortDesc}" /></td>
-			             <td th:if="${#fields.hasErrors('productShortDesc')}" th:errors="*{productShortDesc}" class="errorColorDescription">Error with Short Description</td>
-			         </tr>
-			         <tr>
-			             <td>Long Description* (min 1, max 60 char):</td>
-			             <td><input type="text" th:field="*{productLongDesc}" /></td>
-			             <td th:if="${#fields.hasErrors('productLongDesc')}" th:errors="*{productLongDesc}" class="errorColorDescription">Error with Long Description</td>
-			          </tr>
-			     </table>
-			     <button type="submit" class="btn btn-primary">Submit</button>
-		    </form> -->
         </div>
 		<div class="footer" th:include="fragments/footer :: site-footer"></div>
 	</body>
