@@ -44,26 +44,23 @@
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="productsColorCdtb.colorCd">Color*</label>
-			      <select th:field="*{productsColorCdtb.colorCd}" class="form-control">
-			        <option selected="selected" th:value="0">-- Select --</option>
+			      <select th:field="*{productsColorCdtb.colorCd}" class="form-control" th:required="required"
+			      	oninvalid="this.setCustomValidity('Select Color')" onchange="this.setCustomValidity('')">
+			        <option value="">-- Select --</option>
 		          	<option th:each="color : ${productsColorList}" 
 		                  th:value="${color.colorCd}" 
 		                  th:text="${color.colorShortDesc}">Thymus Thymi</option>
 		          </select>
-			      <!-- <select id="productsColorCdtb.colorCd" class="form-control">
-			        <option selected>Choose...</option>
-			        <option>...</option>
-			      </select> -->
 			    </div>
-			    <!-- <div class="col-md-4 mb-3">
-			      <label for="productsColorCdtb.colorCd">Color*</label>
-			      <input type="text" class="form-control" id="productsColorCdtb.colorCd" placeholder="Color" th:required="required"
-			      th:field="*{productsColorCdtb.colorCd}"></input>
-			    </div> -->
 			    <div class="col-md-4 mb-3">
 			      <label for="validationDefault05">Size*</label>
-			      <input type="text" class="form-control" id="validationDefault05" placeholder="Size" th:required="required"
-			      th:field="*{includedYear}"></input>
+			      <select th:field="*{productsColorCdtb.colorCd}" class="form-control" th:required="required"
+			      	oninvalid="this.setCustomValidity('Select Size')" onchange="this.setCustomValidity('')">
+			        <option value="">-- Select --</option>
+		          	<option th:each="size : ${ladiesDenimSizes}" 
+		                  th:value="${size.denimSizeCd}" 
+		                  th:text="${size.denimSizeShortDesc}">Thymus Thymi</option>
+		          </select>
 			    </div>
 			  </div>
 			  <div class="form-row">

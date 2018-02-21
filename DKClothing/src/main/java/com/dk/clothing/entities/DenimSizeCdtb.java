@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="denim_size_cdtb")
+@Table(name="ladies_denim_size_cdtb")
 @NamedQuery(name="DenimSizeCdtb.findAll", query="SELECT d FROM DenimSizeCdtb d")
 public class DenimSizeCdtb implements Serializable {
 	private static final long serialVersionUID = 1L;

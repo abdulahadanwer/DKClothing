@@ -1,5 +1,7 @@
 package com.dk.clothing.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.dk.clothing.entities.DenimSizeCdtb;
 import com.dk.clothing.entities.Product;
 import com.dk.clothing.service.DenimService;
 import com.dk.clothing.service.ProductService;
@@ -25,14 +28,16 @@ public class DenimController {
 	
 	@RequestMapping(value="/ladiesDenim", method=RequestMethod.GET)
 	public String getDenimInInventory(Model model) {
-		model.addAttribute("ladiesDenimList", denimService.denimInTheInventory());
+		model.addAttribute("ladiesDenimList", denimService.ladiesDenimInTheInventory());
 		return "ladiesDenim";
 	}
 	
 	@RequestMapping(value="/addLadiesDenim", method=RequestMethod.GET)
 	public String addLadiesDenim(Model model) {
+		List<DenimSizeCdtb> getLadiesDenimSizes = denimService.getLadiesDenimSizes();
 		model.addAttribute("product", new Product());
 		model.addAttribute("productsColorList", productService.findAllProductColors()); 
+		model.addAttribute("ladiesDenimSizes", denimService.getLadiesDenimSizes());
 		return "addLadiesDenim";
 	}
 	
