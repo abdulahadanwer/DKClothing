@@ -17,7 +17,7 @@
 			<a th:href="@{/inventory}">Back</a><br></br>
 			<h2>Add items to the ladies Denim inventory</h2>
 			
-			<form action="#" th:action="@{/submitLadiesDenim}" th:object="${product}" method="post">
+			<form action="#" th:action="@{/submitLadiesDenim}" th:object="${product}" method="post" enctype="multipart/form-data">
 			  <div th:if="${#fields.hasAnyErrors()}">
 				  <p th:each="err : ${#fields.allErrors()}" class="errorColorDescription" th:text="${err}">...</p>
 			  </div>
@@ -44,8 +44,9 @@
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="productsColorCdtb.colorCd">Color*</label>
-			      <select th:field="*{productsColorCdtb.colorCd}" class="form-control" th:required="required"
-			      	oninvalid="this.setCustomValidity('Select Color')" onchange="this.setCustomValidity('')">
+			      <select id="productsColorCdtb.colorCd" class="form-control" th:required="required"
+			      	oninvalid="this.setCustomValidity('Select Color')" onchange="this.setCustomValidity('')"
+			      	th:field="*{productsColorCdtb.colorCd}">
 			        <option value="">-- Select --</option>
 		          	<option th:each="color : ${productsColorList}" 
 		                  th:value="${color.colorCd}" 
@@ -53,9 +54,10 @@
 		          </select>
 			    </div>
 			    <div class="col-md-4 mb-3">
-			      <label for="validationDefault05">Size*</label>
-			      <select th:field="*{productsColorCdtb.colorCd}" class="form-control" th:required="required"
-			      	oninvalid="this.setCustomValidity('Select Size')" onchange="this.setCustomValidity('')">
+			      <label for="ladiesDenimSizeCd">Size*</label>
+			      <select id="ladiesDenimSizeCd" class="form-control" th:required="required"
+			      	oninvalid="this.setCustomValidity('Select Size')" onchange="this.setCustomValidity('')"
+			      	th:field="*{ladiesDenimSizeCd}">
 			        <option value="">-- Select --</option>
 		          	<option th:each="size : ${ladiesDenimSizes}" 
 		                  th:value="${size.denimSizeCd}" 
@@ -66,9 +68,10 @@
 			  <div class="form-row">
 			    <div class="col-md-4 mb-3">
 			      <label for="includedYear">Images</label>
-			      <input type="number" class="form-control" id="includedYear" placeholder="Images" 
-			      	oninvalid="this.setCustomValidity('Enter Included Year')" onchange="this.setCustomValidity('')"
-			      	th:field="*{includedYear}"></input>
+			      <div class="custom-file">
+				    <input type="file" class="custom-file-input" id="files"></input>
+				    <label class="custom-file-label" for="files">Choose file(s)</label>
+				  </div>
 			    </div>			    
 			  </div>
 			  <button class="btn btn-primary" type="submit">Add Item(s)</button>

@@ -23,7 +23,7 @@ public class Product implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="product_id")
-	private int productId;
+	private Integer productId;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="cret_date")
@@ -86,6 +86,9 @@ public class Product implements Serializable {
 	//bi-directional many-to-one association to Sock
 	@OneToMany(mappedBy="product")
 	private List<Sock> socks;
+	
+	//transient variable to store size in denim table
+	private transient Integer ladiesDenimSizeCd;
 
 	public Product() {
 	}
@@ -286,6 +289,15 @@ public class Product implements Serializable {
 		sock.setProduct(null);
 
 		return sock;
+	}
+
+	//getters/setters for helpers
+	public Integer getLadiesDenimSizeCd() {
+		return ladiesDenimSizeCd;
+	}
+
+	public void setLadiesDenimSizeCd(Integer ladiesDenimSizeCd) {
+		this.ladiesDenimSizeCd = ladiesDenimSizeCd;
 	}
 
 }

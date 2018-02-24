@@ -25,10 +25,6 @@ public class DenimSizeCdtb implements Serializable {
 	@Column(name="denim_size_short_desc")
 	private String denimSizeShortDesc;
 
-	//bi-directional many-to-one association to Denim
-	@OneToMany(mappedBy="denimSizeCdtb")
-	private List<Denim> denims;
-
 	public DenimSizeCdtb() {
 	}
 
@@ -55,27 +51,4 @@ public class DenimSizeCdtb implements Serializable {
 	public void setDenimSizeShortDesc(String denimSizeShortDesc) {
 		this.denimSizeShortDesc = denimSizeShortDesc;
 	}
-
-	public List<Denim> getDenims() {
-		return this.denims;
-	}
-
-	public void setDenims(List<Denim> denims) {
-		this.denims = denims;
-	}
-
-	public Denim addDenim(Denim denim) {
-		getDenims().add(denim);
-		denim.setDenimSizeCdtb(this);
-
-		return denim;
-	}
-
-	public Denim removeDenim(Denim denim) {
-		getDenims().remove(denim);
-		denim.setDenimSizeCdtb(null);
-
-		return denim;
-	}
-
 }
