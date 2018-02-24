@@ -9,6 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name="ladies_denim")
 @NamedQuery(name="Denim.findAll", query="SELECT d FROM Denim d")
 public class Denim implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,8 +23,8 @@ public class Denim implements Serializable {
 
 	//bi-directional many-to-one association to DenimSizeCdtb
 	@ManyToOne
-	@JoinColumn(name="denim_size_cd")
-	private DenimSizeCdtb denimSizeCdtb;
+	@JoinColumn(name="ladies_denim_size_cd")
+	private DenimSizeCdtb ladiesDenimSizeCdtb;
 
 	//bi-directional many-to-one association to Product
 	@ManyToOne
@@ -50,11 +51,11 @@ public class Denim implements Serializable {
 	}
 
 	public DenimSizeCdtb getDenimSizeCdtb() {
-		return this.denimSizeCdtb;
+		return this.ladiesDenimSizeCdtb;
 	}
 
-	public void setDenimSizeCdtb(DenimSizeCdtb denimSizeCdtb) {
-		this.denimSizeCdtb = denimSizeCdtb;
+	public void setDenimSizeCdtb(DenimSizeCdtb ladiesDenimSizeCdtb) {
+		this.ladiesDenimSizeCdtb = ladiesDenimSizeCdtb;
 	}
 
 	public Product getProduct() {

@@ -52,17 +52,7 @@ public class DenimController {
 	        return "addLadiesDenim";
 	    }
 		
-		List<ProductsImage> productImageList = new ArrayList<ProductsImage>();
-		try {
-			for(MultipartFile file : files) {
-				ProductsImage productsImage = new ProductsImage();
-				productsImage.setImageFileName(file.getOriginalFilename());
-				productsImage.setImage(file.getBytes());
-				productImageList.add(productsImage);				
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+
 		
 		
 		return null;
