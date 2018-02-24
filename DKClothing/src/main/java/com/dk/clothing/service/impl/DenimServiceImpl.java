@@ -40,7 +40,7 @@ public class DenimServiceImpl implements DenimService{
 	 * @return List<DenimSizeCdtb> 
 	 * */
 	public List<DenimSizeCdtb> getLadiesDenimSizes(){
-		return denimSizeCdtbRepository.findAllByOrderByDenimSizeCdAsc();
+		return denimSizeCdtbRepository.findAllByOrderByLadiesDenimSizeCdAsc();
 	}
 
 }

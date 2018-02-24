@@ -10,4 +10,6 @@ public interface DenimService {
 	public List<Product> ladiesDenimInTheInventory();
 	
 	public List<DenimSizeCdtb> getLadiesDenimSizes();
+	
+	public boolean submitLadiesDenim();
 }

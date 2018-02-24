@@ -16,8 +16,8 @@ public class DenimSizeCdtb implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="denim_size_cd")
-	private String denimSizeCd;
+	@Column(name="ladies_denim_size_cd")
+	private Integer ladiesDenimSizeCd;
 
 	@Column(name="denim_size_long_desc")
 	private String denimSizeLongDesc;
@@ -32,12 +32,12 @@ public class DenimSizeCdtb implements Serializable {
 	public DenimSizeCdtb() {
 	}
 
-	public String getDenimSizeCd() {
-		return this.denimSizeCd;
+	public Integer getDenimSizeCd() {
+		return this.ladiesDenimSizeCd;
 	}
 
-	public void setDenimSizeCd(String denimSizeCd) {
-		this.denimSizeCd = denimSizeCd;
+	public void setDenimSizeCd(Integer ladiesDenimSizeCd) {
+		this.ladiesDenimSizeCd = ladiesDenimSizeCd;
 	}
 
 	public String getDenimSizeLongDesc() {

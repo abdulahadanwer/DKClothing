@@ -20,6 +20,9 @@ public class ProductsImage implements Serializable {
 
 	@Lob
 	private byte[] image;
+	
+	@Column(name="image_file_name")
+	private String imageFileName;
 
 	//bi-directional many-to-one association to Product
 	@ManyToOne
@@ -39,6 +42,14 @@ public class ProductsImage implements Serializable {
 
 	public byte[] getImage() {
 		return this.image;
+	}
+		
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 
 	public void setImage(byte[] image) {

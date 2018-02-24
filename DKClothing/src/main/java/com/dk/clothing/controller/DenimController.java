@@ -1,5 +1,6 @@
 package com.dk.clothing.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -11,9 +12,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.dk.clothing.entities.DenimSizeCdtb;
 import com.dk.clothing.entities.Product;
+import com.dk.clothing.entities.ProductsImage;
 import com.dk.clothing.service.DenimService;
 import com.dk.clothing.service.ProductService;
 
@@ -34,7 +38,6 @@ public class DenimController {
 	
 	@RequestMapping(value="/addLadiesDenim", method=RequestMethod.GET)
 	public String addLadiesDenim(Model model) {
-		List<DenimSizeCdtb> getLadiesDenimSizes = denimService.getLadiesDenimSizes();
 		model.addAttribute("product", new Product());
 		model.addAttribute("productsColorList", productService.findAllProductColors()); 
 		model.addAttribute("ladiesDenimSizes", denimService.getLadiesDenimSizes());
@@ -42,11 +45,26 @@ public class DenimController {
 	}
 	
 	@RequestMapping(value="/submitLadiesDenim", method=RequestMethod.POST)
-	public String addLadiesDenim(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult, Model model) {
+	public String addLadiesDenim(@RequestParam("file") MultipartFile[] files,
+								 @Valid @ModelAttribute("product") Product product, 
+								 BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) { // if there are errors in product form
-			//model.addAttribute("productsList", productService.findAllProducts()); //this list does not included the one user tried to enter
 	        return "addLadiesDenim";
 	    }
+		
+		List<ProductsImage> productImageList = new ArrayList<ProductsImage>();
+		try {
+			for(MultipartFile file : files) {
+				ProductsImage productsImage = new ProductsImage();
+				productsImage.setImageFileName(file.getOriginalFilename());
+				productsImage.setImage(file.getBytes());
+				productImageList.add(productsImage);				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
 		return null;
 	}
 

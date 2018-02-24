@@ -8,5 +8,5 @@ import com.dk.clothing.entities.DenimSizeCdtb;
 
 public interface DenimSizeCdtbRepository extends JpaRepository<DenimSizeCdtb, String>{	
 	
-	public List<DenimSizeCdtb> findAllByOrderByDenimSizeCdAsc();
+	public List<DenimSizeCdtb> findAllByOrderByLadiesDenimSizeCdAsc();
 }
