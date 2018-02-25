@@ -6,16 +6,17 @@ import java.util.List;
 
 
 /**
- * The persistent class for the denim_size_cdtb database table.
+ * The persistent class for the ladies_denim_size_cdtb database table.
  * 
  */
 @Entity
 @Table(name="ladies_denim_size_cdtb")
-@NamedQuery(name="DenimSizeCdtb.findAll", query="SELECT d FROM DenimSizeCdtb d")
-public class DenimSizeCdtb implements Serializable {
+@NamedQuery(name="LadiesDenimSizeCdtb.findAll", query="SELECT l FROM LadiesDenimSizeCdtb l")
+public class LadiesDenimSizeCdtb implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ladies_denim_size_cd")
 	private Integer ladiesDenimSizeCd;
 
@@ -25,14 +26,15 @@ public class DenimSizeCdtb implements Serializable {
 	@Column(name="denim_size_short_desc")
 	private String denimSizeShortDesc;
 
-	public DenimSizeCdtb() {
+
+	public LadiesDenimSizeCdtb() {
 	}
 
-	public Integer getDenimSizeCd() {
+	public Integer getLadiesDenimSizeCd() {
 		return this.ladiesDenimSizeCd;
 	}
 
-	public void setDenimSizeCd(Integer ladiesDenimSizeCd) {
+	public void setLadiesDenimSizeCd(Integer ladiesDenimSizeCd) {
 		this.ladiesDenimSizeCd = ladiesDenimSizeCd;
 	}
 
@@ -51,4 +53,5 @@ public class DenimSizeCdtb implements Serializable {
 	public void setDenimSizeShortDesc(String denimSizeShortDesc) {
 		this.denimSizeShortDesc = denimSizeShortDesc;
 	}
+
 }

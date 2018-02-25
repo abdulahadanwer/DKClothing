@@ -13,6 +13,12 @@
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header"></div>
+		<div th:if="${successMessage}">
+			<p class="successMsg" th:text="${successMessage}"></p>
+		</div>
+		<div th:if="${failureMessage}">
+			<p class="failureMsg" th:text="${failureMessage}"></p>
+		</div>
 		<div class="container">
 			<a th:href="@{/inventory}">Back</a><br></br>
 			<h2>Available Ladies Denim in the inventory</h2>
@@ -23,7 +29,7 @@
 				      	<th>PRODUCT ID</th>
 				      	<th>PRODUCT CODE</th>
 				        <th>COLOR CODE</th>
-				        <th>iNCLUDED YEAR</th>
+				        <th>INCLUDED YEAR</th>
 				        <th>PRICE PER UNIT</th>
 				        <th>TOTAL NO. OF ITEMS</th>
 				        <th>CREATED DATE</th>
@@ -39,9 +45,7 @@
 					        <td th:text="${ladiesDenim.pricePerUnit}">Price Per Unit</td>
 					        <td th:text="${ladiesDenim.totalItems}">Total Items</td>
 					        <td th:text="${ladiesDenim.cretDate}">CREATED DATE</td>
-					        <td th:text="${ladiesDenim.cretUid}">CREATED ID</td>
 					        <td th:text="${ladiesDenim.updtDate}">UPDATED DATE</td>
-					        <td th:text="${ladiesDenim.updtUid}">UPDATED ID</td>
 					      </tr>
 					  </tbody>
 			    </table>

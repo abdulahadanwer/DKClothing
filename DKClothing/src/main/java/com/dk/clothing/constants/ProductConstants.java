@@ -14,11 +14,25 @@ public final class ProductConstants {
 	 
 	 public static final String PRODUCT_EXISTING_MESSAGE = "You are trying to add an already existing product. Please add a new product.";
 	 
+	 public static final String LADIES_DENIM_COLOR_SUCCESS_MSG = "Ladies Denim added successfully.";
+	 
+	 public static final String LADIES_DENIM_COLOR_FAILURE_MESSAGE = "Ladies Denim can't be added this time. Please contact your system Admin.";
+	 
 	 public static final String SUCCESS_MESSAGE = "sUcCeSs213sUcCeSs31225321mESSAssAGddxuysiilsddGGGEEvfs4sd7s613sde313sx333xd313s38e33s332sssecbn4_fgf54";
 	 
 	 public static final String FAILURE_MESSAGE = "FffAaaIiiLllU1237u25sxs55123856RrrrrExxuixiyxjyjxtxee_SDFEejle3s2d145e23a87ed3e31v3w323dvcbgg2t25r5f2";
 	 
-	 public static final String WARNING_MESSAGE = "WARrniiinn36939588sfd5e2d4d5e8s5f4fredds5s58e_=+sdfdfdsee+-*6522+233852390dkenedkkujnngguuendhyyyyyyyy";	 
+	 public static final String WARNING_MESSAGE = "WARrniiinn36939588sfd5e2d4d5e8s5f4fredds5s58e_=+sdfdfdsee+-*6522+233852390dkenedkkujnngguuendhyyyyyyyy";
+	 
+	 public static final String YES_IND = "Y";
+	 
+	 public static final String NO_IND = "N";
+	 
+	 public static final String SEX_CD_MALE = "M";
+	 
+	 public static final String SEX_CD_FEMALE = "F";
+	 
+	 public static final String SEX_CD_UNISEX = "U";
 	 
 	 public static final String RESISTANCE_BELT_CD = "RB";
 	 

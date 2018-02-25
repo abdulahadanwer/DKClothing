@@ -17,7 +17,8 @@
 			<a th:href="@{/inventory}">Back</a><br></br>
 			<h2>Add items to the ladies Denim inventory</h2>
 			
-			<form action="#" th:action="@{/submitLadiesDenim}" th:object="${product}" method="post" enctype="multipart/form-data">
+			<form action="#" th:action="@{/submitLadiesDenim}" th:object="${product}" method="post" enctype="multipart/form-data"
+																								accept="image/jpeg,image/png,image/gif">
 			  <div th:if="${#fields.hasAnyErrors()}">
 				  <p th:each="err : ${#fields.allErrors()}" class="errorColorDescription" th:text="${err}">...</p>
 			  </div>
@@ -60,23 +61,21 @@
 			      	th:field="*{ladiesDenimSizeCd}">
 			        <option value="">-- Select --</option>
 		          	<option th:each="size : ${ladiesDenimSizes}" 
-		                  th:value="${size.denimSizeCd}" 
-		                  th:text="${size.denimSizeShortDesc}">Thymus Thymi</option>
+		                  th:value="${size.ladiesDenimSizeCd}" 
+		                  th:text="${size.denimSizeLongDesc}">Thymus Thymi</option>
 		          </select>
 			    </div>
 			  </div>
 			  <div class="form-row">
-			    <div class="col-md-4 mb-3">
-			      <label for="includedYear">Images</label>
-			      <div class="custom-file">
-				    <input type="file" class="custom-file-input" id="files"></input>
-				    <label class="custom-file-label" for="files">Choose file(s)</label>
+				  <div class="col-md-4 mb-3">
+				 	<label for="files">Images</label>	 	
+				    <input type="file" class="form-control" id="files" name="files" multiple="multiple"/>
 				  </div>
-			    </div>			    
 			  </div>
+			  <div class="row" id="image_preview"></div>
 			  <button class="btn btn-primary" type="submit">Add Item(s)</button>
 			</form>
         </div>
-		<div class="footer" th:include="fragments/footer :: site-footer"></div>
+		<div class="footer" th:include="fragments/footer :: site-footer"></div>		
 	</body>
 </html>

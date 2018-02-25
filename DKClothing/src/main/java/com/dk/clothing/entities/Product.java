@@ -2,10 +2,6 @@ package com.dk.clothing.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Range;
-
 import java.util.Date;
 import java.util.List;
 
@@ -31,34 +27,30 @@ public class Product implements Serializable {
 
 	@Column(name="cret_uid")
 	private String cretUid;
-	
-	@Temporal(TemporalType.DATE)
-	@Column(name="updt_date")
-	private Date updtDate;
-	
-	@Column(name="updt_uid")
-	private String updtUid;
-	
+
 	@Column(name="included_year")
-	@NotNull
-	@Range(min = 2017, message="{includedYear.minYear}")
 	private Integer includedYear;
 
 	@Column(name="price_per_unit")
-	@NotNull
 	private Float pricePerUnit;
 
 	@Column(name="total_items")
-	@NotNull
 	private Integer totalItems;
 
-	//bi-directional many-to-one association to Denim
-	@OneToMany(mappedBy="product")
-	private List<Denim> denims;
+	@Temporal(TemporalType.DATE)
+	@Column(name="updt_date")
+	private Date updtDate;
+
+	@Column(name="updt_uid")
+	private String updtUid;
 
 	//bi-directional many-to-one association to LadiesApparel
 	@OneToMany(mappedBy="product")
 	private List<LadiesApparel> ladiesApparels;
+
+	//bi-directional many-to-one association to LadiesDenim
+	@OneToMany(mappedBy="product",cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<LadiesDenim> ladiesDenims;
 
 	//bi-directional many-to-one association to Legging
 	@OneToMany(mappedBy="product")
@@ -80,7 +72,7 @@ public class Product implements Serializable {
 	private SexCdtb sexCdtb;
 
 	//bi-directional many-to-one association to ProductsImage
-	@OneToMany(mappedBy="product")
+	@OneToMany(mappedBy="product",cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ProductsImage> productsImages;
 
 	//bi-directional many-to-one association to Sock
@@ -141,26 +133,20 @@ public class Product implements Serializable {
 		this.totalItems = totalItems;
 	}
 
-	public List<Denim> getDenims() {
-		return this.denims;
+	public Date getUpdtDate() {
+		return this.updtDate;
 	}
 
-	public void setDenims(List<Denim> denims) {
-		this.denims = denims;
+	public void setUpdtDate(Date updtDate) {
+		this.updtDate = updtDate;
 	}
 
-	public Denim addDenim(Denim denim) {
-		getDenims().add(denim);
-		denim.setProduct(this);
-
-		return denim;
+	public String getUpdtUid() {
+		return this.updtUid;
 	}
 
-	public Denim removeDenim(Denim denim) {
-		getDenims().remove(denim);
-		denim.setProduct(null);
-
-		return denim;
+	public void setUpdtUid(String updtUid) {
+		this.updtUid = updtUid;
 	}
 
 	public List<LadiesApparel> getLadiesApparels() {
@@ -183,6 +169,28 @@ public class Product implements Serializable {
 		ladiesApparel.setProduct(null);
 
 		return ladiesApparel;
+	}
+
+	public List<LadiesDenim> getLadiesDenims() {
+		return this.ladiesDenims;
+	}
+
+	public void setLadiesDenims(List<LadiesDenim> ladiesDenims) {
+		this.ladiesDenims = ladiesDenims;
+	}
+
+	public LadiesDenim addLadiesDenim(LadiesDenim ladiesDenim) {
+		getLadiesDenims().add(ladiesDenim);
+		ladiesDenim.setProduct(this);
+
+		return ladiesDenim;
+	}
+
+	public LadiesDenim removeLadiesDenim(LadiesDenim ladiesDenim) {
+		getLadiesDenims().remove(ladiesDenim);
+		ladiesDenim.setProduct(null);
+
+		return ladiesDenim;
 	}
 
 	public List<Legging> getLeggings() {
@@ -238,22 +246,6 @@ public class Product implements Serializable {
 	public void setProductsImages(List<ProductsImage> productsImages) {
 		this.productsImages = productsImages;
 	}
-	
-	public Date getUpdtDate() {
-		return updtDate;
-	}
-
-	public void setUpdtDate(Date updtDate) {
-		this.updtDate = updtDate;
-	}
-
-	public String getUpdtUid() {
-		return updtUid;
-	}
-
-	public void setUpdtUid(String updtUid) {
-		this.updtUid = updtUid;
-	}
 
 	public ProductsImage addProductsImage(ProductsImage productsImage) {
 		getProductsImages().add(productsImage);
@@ -291,7 +283,6 @@ public class Product implements Serializable {
 		return sock;
 	}
 
-	//getters/setters for helpers
 	public Integer getLadiesDenimSizeCd() {
 		return ladiesDenimSizeCd;
 	}

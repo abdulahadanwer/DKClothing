@@ -16,6 +16,7 @@ public class ProductsImage implements Serializable {
 
 	@Id
 	@Column(name="products_images_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int productsImagesId;
 
 	@Lob

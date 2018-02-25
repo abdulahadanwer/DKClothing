@@ -39,10 +39,6 @@ public class ProductsCdtb implements Serializable {
     @Size(min=1, max=45, message="{productName.size}")
 	private String productName;
 
-	//bi-directional many-to-one association to Product
-	@OneToMany(mappedBy="productsCdtb")
-	private List<Product> products;
-
 	public ProductsCdtb() {
 	}
 
@@ -76,28 +72,6 @@ public class ProductsCdtb implements Serializable {
 
 	public void setProductShortDesc(String productShortDesc) {
 		this.productShortDesc = productShortDesc;
-	}
-
-	public List<Product> getProducts() {
-		return this.products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
-
-	public Product addProduct(Product product) {
-		getProducts().add(product);
-		product.setProductsCdtb(this);
-
-		return product;
-	}
-
-	public Product removeProduct(Product product) {
-		getProducts().remove(product);
-		product.setProductsCdtb(null);
-
-		return product;
 	}
 
 }

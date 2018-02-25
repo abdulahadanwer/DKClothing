@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dk.clothing.constants.ProductConstants;
 import com.dk.clothing.entities.Product;
 import com.dk.clothing.entities.ProductsImage;
 import com.dk.clothing.service.DenimService;
@@ -45,17 +46,21 @@ public class DenimController {
 	}
 	
 	@RequestMapping(value="/submitLadiesDenim", method=RequestMethod.POST)
-	public String addLadiesDenim(@RequestParam("file") MultipartFile[] files,
+	public String addLadiesDenim(@RequestParam("files") MultipartFile[] files,
 								 @Valid @ModelAttribute("product") Product product, 
 								 BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) { // if there are errors in product form
 	        return "addLadiesDenim";
 	    }
 		
-
+		boolean isLadiesDenimSaved = denimService.submitLadiesDenim(files, product);
 		
+		if(isLadiesDenimSaved == true) 
+			redirectAttributes.addFlashAttribute("successMessage", ProductConstants.LADIES_DENIM_COLOR_SUCCESS_MSG);
+		else
+			redirectAttributes.addFlashAttribute("failureMessage", ProductConstants.LADIES_DENIM_COLOR_FAILURE_MESSAGE);	
 		
-		return null;
+		return "redirect:/ladiesDenim";
 	}
 
 }
