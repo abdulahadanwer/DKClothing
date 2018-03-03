@@ -14,7 +14,6 @@ import com.dk.clothing.entities.LadiesDenim;
 import com.dk.clothing.entities.LadiesDenimSizeCdtb;
 import com.dk.clothing.entities.Product;
 import com.dk.clothing.entities.ProductsImage;
-import com.dk.clothing.entities.SexCdtb;
 import com.dk.clothing.repositories.DenimSizeCdtbRepository;
 import com.dk.clothing.repositories.ProductRepository;
 import com.dk.clothing.repositories.ProductsCdtbRepository;

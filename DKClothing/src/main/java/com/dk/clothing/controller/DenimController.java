@@ -1,8 +1,5 @@
 package com.dk.clothing.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dk.clothing.constants.ProductConstants;
 import com.dk.clothing.entities.Product;
-import com.dk.clothing.entities.ProductsImage;
 import com.dk.clothing.service.DenimService;
 import com.dk.clothing.service.ProductService;
 

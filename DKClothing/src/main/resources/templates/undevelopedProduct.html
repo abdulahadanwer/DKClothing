@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header"></div>
-		<a th:href="@{/getProduct/nm}">Back</a><br></br>
+		<a th:href="@{/getProduct}">Back</a><br></br>
 		<h2>Screens have not yet been developed for the following product</h2>
 		<div><p th:text="${product.productName}">Product Name</p></div>		
 		<div class="footer" th:include="fragments/footer :: site-footer"></div>

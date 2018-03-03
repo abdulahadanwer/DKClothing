@@ -12,7 +12,7 @@ public final class ProductConstants {
 	 
 	 public static final String PRODUCT_FAILURE_MESSAGE = "Product can't be added this time. Please contact your system Admin.";
 	 
-	 public static final String PRODUCT_EXISTING_MESSAGE = "You are trying to add an already existing product. Please add a new product.";
+	 public static final String PRODUCT_EXISTING_MESSAGE = "You were trying to add an already existing product. Please add a new product.";
 	 
 	 public static final String LADIES_DENIM_COLOR_SUCCESS_MSG = "Ladies Denim added successfully.";
 	 

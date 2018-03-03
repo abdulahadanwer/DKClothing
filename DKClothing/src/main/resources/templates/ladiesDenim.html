@@ -13,15 +13,15 @@
 	</head>
 	<body>
 		<div th:replace="fragments/header :: header"></div>
-		<div th:if="${successMessage}">
-			<p class="successMsg" th:text="${successMessage}"></p>
-		</div>
-		<div th:if="${failureMessage}">
-			<p class="failureMsg" th:text="${failureMessage}"></p>
-		</div>
 		<div class="container">
 			<a th:href="@{/inventory}">Back</a><br></br>
 			<h2>Available Ladies Denim in the inventory</h2>
+			<div th:if="${successMessage}">
+				<p class="successMsg" th:text="${successMessage}"></p>
+			</div>
+			<div th:if="${failureMessage}">
+				<p class="failureMsg" th:text="${failureMessage}"></p>
+			</div>
 			<div th:unless="${#lists.isEmpty(ladiesDenimList)}">
 				<table class="table table-bordered">
 				 	<thead>
@@ -38,7 +38,7 @@
 				     </thead>
 				     <tbody>
 					     <tr th:each="ladiesDenim : ${ladiesDenimList}">
-					        <td><a th:text="${ladiesDenim.productId}" th:href="@{/home}"></a></td>
+					        <td><a th:text="${ladiesDenim.productId}" th:href="@{/}"></a></td>
 					        <td th:text="${ladiesDenim.productsCdtb.productCd}">Product Code</td>
 					        <td th:text="${ladiesDenim.productsColorCdtb.colorShortDesc}">Color Code</td>
 					        <td th:text="${ladiesDenim.includedYear}">Included Year</td>

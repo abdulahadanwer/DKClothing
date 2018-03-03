@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ResistanceBeltController {
 	
 	@RequestMapping(value="/resistanceBelt", method=RequestMethod.GET)
-	public String updateProduct(@PathVariable String productCd, Model model) {
+	public String updateProduct(Model model) {
 		return "resistanceBelt";
 	}
 
