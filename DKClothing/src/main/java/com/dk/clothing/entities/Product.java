@@ -13,20 +13,13 @@ import java.util.List;
 @Entity
 @Table(name="products")
 @NamedQuery(name="Product.findAll", query="SELECT p FROM Product p")
-public class Product implements Serializable {
+public class Product extends Code implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="product_id")
 	private Integer productId;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="cret_date")
-	private Date cretDate;
-
-	@Column(name="cret_uid")
-	private String cretUid;
 
 	@Column(name="included_year")
 	private Integer includedYear;
@@ -36,13 +29,6 @@ public class Product implements Serializable {
 
 	@Column(name="total_items")
 	private Integer totalItems;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name="updt_date")
-	private Date updtDate;
-
-	@Column(name="updt_uid")
-	private String updtUid;
 
 	//bi-directional many-to-one association to LadiesApparel
 	@OneToMany(mappedBy="product")
@@ -93,22 +79,6 @@ public class Product implements Serializable {
 		this.productId = productId;
 	}
 
-	public Date getCretDate() {
-		return this.cretDate;
-	}
-
-	public void setCretDate(Date cretDate) {
-		this.cretDate = cretDate;
-	}
-
-	public String getCretUid() {
-		return this.cretUid;
-	}
-
-	public void setCretUid(String cretUid) {
-		this.cretUid = cretUid;
-	}
-
 	public Integer getIncludedYear() {
 		return this.includedYear;
 	}
@@ -131,22 +101,6 @@ public class Product implements Serializable {
 
 	public void setTotalItems(Integer totalItems) {
 		this.totalItems = totalItems;
-	}
-
-	public Date getUpdtDate() {
-		return this.updtDate;
-	}
-
-	public void setUpdtDate(Date updtDate) {
-		this.updtDate = updtDate;
-	}
-
-	public String getUpdtUid() {
-		return this.updtUid;
-	}
-
-	public void setUpdtUid(String updtUid) {
-		this.updtUid = updtUid;
 	}
 
 	public List<LadiesApparel> getLadiesApparels() {

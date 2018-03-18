@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="products_images")
 @NamedQuery(name="ProductsImage.findAll", query="SELECT p FROM ProductsImage p")
-public class ProductsImage implements Serializable {
+public class ProductsImage extends Code implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id

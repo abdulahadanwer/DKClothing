@@ -38,15 +38,6 @@ public class InventoryController {
 		
 		if(productsColorList != null) 
 			model.addAttribute("productsColorList", productsColorList);
-		
-		/*if(msg.equals(ProductConstants.SUCCESS_MESSAGE))
-			model.addAttribute("success", ProductConstants.COLOR_SUCCESS_MSG);
-		
-		if(msg.equals(ProductConstants.FAILURE_MESSAGE))
-			model.addAttribute("failure", ProductConstants.COLOR_FAILURE_MESSAGE);
-		
-		if(msg.equals(ProductConstants.WARNING_MESSAGE))
-			model.addAttribute("warning", ProductConstants.COLOR_WARNING_MESSAGE);*/
 					
 		model.addAttribute("productColor", new ProductsColorCdtb());
 		return "productColor";
@@ -68,13 +59,10 @@ public class InventoryController {
 			productColor = productService.saveColorCd(productColor);
 			if(productColor != null) 
 				redirectAttributes.addFlashAttribute("success", ProductConstants.COLOR_SUCCESS_MSG);
-				//msg = ProductConstants.SUCCESS_MESSAGE;
 			else
 				redirectAttributes.addFlashAttribute("failure", ProductConstants.COLOR_FAILURE_MESSAGE);
-				//msg = ProductConstants.FAILURE_MESSAGE;			
 		}else
 			redirectAttributes.addFlashAttribute("warning", ProductConstants.COLOR_WARNING_MESSAGE);
-			//msg = ProductConstants.WARNING_MESSAGE;
 	
 		
 		return "redirect:/getProductColor";

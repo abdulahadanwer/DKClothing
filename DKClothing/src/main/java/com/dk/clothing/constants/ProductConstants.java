@@ -37,4 +37,6 @@ public final class ProductConstants {
 	 public static final String RESISTANCE_BELT_CD = "RB";
 	 
 	 public static final String LADIES_DENIM_CD = "LD";
+	 
+	 public static final String ADMIN = "ADMIN";
 }

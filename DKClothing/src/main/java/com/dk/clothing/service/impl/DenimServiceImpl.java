@@ -69,7 +69,13 @@ public class DenimServiceImpl implements DenimService{
 				productsImage.setProduct(products);
 				productsImage.setImageFileName(file.getOriginalFilename());
 				productsImage.setImage(file.getBytes());
-				productImageList.add(productsImage);				
+				//adding common elements like created/updated date and created/updated userid
+				productsImage.setCretDate(new Date());
+				productsImage.setCretUid(ProductConstants.ADMIN);
+				productsImage.setUpdtDate(new Date());
+				productsImage.setUpdtUid(ProductConstants.ADMIN);
+				//////////////////////////
+				productImageList.add(productsImage);
 			}
 			
 			LadiesDenimSizeCdtb denimSizeCdtb = denimSizeCdtbRepository.findByLadiesDenimSizeCd(products.getLadiesDenimSizeCd());//denim size for all individual denims
@@ -78,10 +84,21 @@ public class DenimServiceImpl implements DenimService{
 				denims[i] = new LadiesDenim();
 				denims[i].setIsSold(ProductConstants.NO_IND);
 				denims[i].setLadiesDenimSizeCdtb(denimSizeCdtb);
+				//adding common elements like created/updated date and created/updated userid
+				denims[i].setCretDate(new Date());
+				denims[i].setCretUid(ProductConstants.ADMIN);
+				denims[i].setUpdtDate(new Date());
+				denims[i].setUpdtUid(ProductConstants.ADMIN);
+				//////////////////////
 				denims[i].setProduct(products);
 			}
 			
+			//adding common elements like created/updated date and created/updated userid
 			products.setCretDate(new Date());
+			products.setCretUid(ProductConstants.ADMIN);
+			products.setUpdtDate(new Date());
+			products.setUpdtUid(ProductConstants.ADMIN);
+			/////////////////////////////////
 			
 			products.setProductsImages(productImageList);
 			
