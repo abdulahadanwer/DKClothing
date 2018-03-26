@@ -39,4 +39,6 @@ public final class ProductConstants {
 	 public static final String LADIES_DENIM_CD = "LD";
 	 
 	 public static final String ADMIN = "ADMIN";
+	 
+	 public static final String PRODUCT_AVAILABLE = "A";
 }

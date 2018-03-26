@@ -13,9 +13,11 @@ import com.dk.clothing.constants.ProductConstants;
 import com.dk.clothing.entities.LadiesDenim;
 import com.dk.clothing.entities.LadiesDenimSizeCdtb;
 import com.dk.clothing.entities.Product;
+import com.dk.clothing.entities.ProductStatusCdtb;
 import com.dk.clothing.entities.ProductsImage;
 import com.dk.clothing.repositories.DenimSizeCdtbRepository;
 import com.dk.clothing.repositories.ProductRepository;
+import com.dk.clothing.repositories.ProductStatusCdtbRepository;
 import com.dk.clothing.repositories.ProductsCdtbRepository;
 import com.dk.clothing.repositories.SexCdtbRepository;
 import com.dk.clothing.service.DenimService;
@@ -38,6 +40,9 @@ public class DenimServiceImpl implements DenimService{
 	
 	@Autowired
 	private ProductsCdtbRepository productsCdtbRepository;
+	
+	@Autowired
+	private ProductStatusCdtbRepository productStatusCdtbRepository;
 	
 	/**
 	 * @return Product
@@ -79,10 +84,10 @@ public class DenimServiceImpl implements DenimService{
 			}
 			
 			LadiesDenimSizeCdtb denimSizeCdtb = denimSizeCdtbRepository.findByLadiesDenimSizeCd(products.getLadiesDenimSizeCd());//denim size for all individual denims
-			
+			ProductStatusCdtb productStatusCdtb = productStatusCdtbRepository.findByProductStatusCd(ProductConstants.PRODUCT_AVAILABLE);//all denims should be available
 			for(int i = 0 ; i < denims.length ; i++) { //setting default values for all individual denims
 				denims[i] = new LadiesDenim();
-				denims[i].setIsSold(ProductConstants.NO_IND);
+				denims[i].setProductStatusCdtb(productStatusCdtb);
 				denims[i].setLadiesDenimSizeCdtb(denimSizeCdtb);
 				//adding common elements like created/updated date and created/updated userid
 				denims[i].setCretDate(new Date());

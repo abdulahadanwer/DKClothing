@@ -42,10 +42,12 @@ public class DenimController {
 	}
 	
 	@RequestMapping(value="/submitLadiesDenim", method=RequestMethod.POST)
-	public String addLadiesDenim(@RequestParam("files") MultipartFile[] files,
+	public String addLadiesDenim(Model model, @RequestParam("files") MultipartFile[] files,
 								 @Valid @ModelAttribute("product") Product product, 
 								 BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) { // if there are errors in product form
+			model.addAttribute("productsColorList", productService.findAllProductColors()); 
+			model.addAttribute("ladiesDenimSizes", denimService.getLadiesDenimSizes());
 	        return "addLadiesDenim";
 	    }
 		

@@ -23,17 +23,23 @@
 				  <p th:each="err : ${#fields.allErrors()}" class="errorColorDescription" th:text="${err}">...</p>
 			  </div>
 			  <div class="form-row">
-			    <div class="col-md-6 mb-3">
+			    <div class="col-md-4 mb-3">
 			      <label for="totalItems">Total Number of Items*</label>
 			      <input type="number" class="form-control" id="totalItems" placeholder="Total Number of Items" th:required="required"
 			      	oninvalid="this.setCustomValidity('Enter Total Number of Items')" onchange="this.setCustomValidity('')"
 			      	th:field="*{totalItems}"></input>
 			    </div>
-			    <div class="col-md-6 mb-3">
+			    <div class="col-md-4 mb-3">
 			      <label for="pricePerUnit">Price Per Unit*</label>
-			      <input type="number" class="form-control" id="pricePerUnit" placeholder="Price Per Unit" th:required="required"
+			      <input type="number" class="form-control" th:step="any" id="pricePerUnit" placeholder="Price Per Unit" th:required="required"
 			      	oninvalid="this.setCustomValidity('Enter Price Per Unit')" onchange="this.setCustomValidity('')"
 			      	th:field="*{pricePerUnit}"></input>
+			    </div>
+			     <div class="col-md-4 mb-3">
+			      <label for="salesPricePerUnit">Sales Price Per Unit*</label>
+			      <input type="number" class="form-control" th:step="any" id="salesPricePerUnit" placeholder="Sales Price Per Unit" th:required="required"
+			      	oninvalid="this.setCustomValidity('Enter Sales Price Per Unit')" onchange="this.setCustomValidity('')"
+			      	th:field="*{salesPricePerUnit}"></input>
 			    </div>
 			  </div>
 			  <div class="form-row">

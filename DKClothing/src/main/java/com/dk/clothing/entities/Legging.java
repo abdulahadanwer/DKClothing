@@ -2,6 +2,7 @@ package com.dk.clothing.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 /**
@@ -23,6 +24,7 @@ public class Legging implements Serializable {
 	//bi-directional many-to-one association to LeggingSizeCdtb
 	@ManyToOne
 	@JoinColumn(name="legging_size_cd")
+	@NotNull
 	private LeggingSizeCdtb leggingSizeCdtb;
 
 	//bi-directional many-to-one association to Product

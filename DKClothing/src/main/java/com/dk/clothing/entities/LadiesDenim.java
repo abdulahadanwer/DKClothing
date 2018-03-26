@@ -2,6 +2,7 @@ package com.dk.clothing.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 /**
@@ -19,8 +20,10 @@ public class LadiesDenim extends Code implements Serializable {
 	@Column(name="denim_id")
 	private int denimId;
 
-	@Column(name="is_sold")
-	private String isSold;
+	//bi-directional many-to-one association to LadiesDenimSizeCdtb
+	@ManyToOne
+	@JoinColumn(name="product_status_cd")
+	private ProductStatusCdtb productStatusCdtb;
 
 	//bi-directional many-to-one association to LadiesDenimSizeCdtb
 	@ManyToOne
@@ -43,14 +46,6 @@ public class LadiesDenim extends Code implements Serializable {
 		this.denimId = denimId;
 	}
 
-	public String getIsSold() {
-		return this.isSold;
-	}
-
-	public void setIsSold(String isSold) {
-		this.isSold = isSold;
-	}
-
 	public LadiesDenimSizeCdtb getLadiesDenimSizeCdtb() {
 		return this.ladiesDenimSizeCdtb;
 	}
@@ -65,6 +60,14 @@ public class LadiesDenim extends Code implements Serializable {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public ProductStatusCdtb getProductStatusCdtb() {
+		return productStatusCdtb;
+	}
+
+	public void setProductStatusCdtb(ProductStatusCdtb productStatusCdtb) {
+		this.productStatusCdtb = productStatusCdtb;
 	}
 
 }

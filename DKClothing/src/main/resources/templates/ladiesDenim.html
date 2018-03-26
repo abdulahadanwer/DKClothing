@@ -27,10 +27,10 @@
 				 	<thead>
 				      <tr>
 				      	<th>PRODUCT ID</th>
-				      	<th>PRODUCT CODE</th>
 				        <th>COLOR CODE</th>
 				        <th>INCLUDED YEAR</th>
 				        <th>PRICE PER UNIT</th>
+				      	<th>SALES PRICE</th>
 				        <th>TOTAL NO. OF ITEMS</th>
 				        <th>CREATED DATE</th>
 				        <th>UPDATED DATE</th>
@@ -38,11 +38,11 @@
 				     </thead>
 				     <tbody>
 					     <tr th:each="ladiesDenim : ${ladiesDenimList}">
-					        <td><a th:text="${ladiesDenim.productId}" th:href="@{/}"></a></td>
-					        <td th:text="${ladiesDenim.productsCdtb.productCd}">Product Code</td>
+					        <td><a th:text="${ladiesDenim.productId}" th:href="@{/}"></a></td>					        
 					        <td th:text="${ladiesDenim.productsColorCdtb.colorShortDesc}">Color Code</td>
 					        <td th:text="${ladiesDenim.includedYear}">Included Year</td>
 					        <td th:text="${ladiesDenim.pricePerUnit}">Price Per Unit</td>
+					        <td th:text="${ladiesDenim.salesPricePerUnit}">Sales Price</td>
 					        <td th:text="${ladiesDenim.totalItems}">Total Items</td>
 					        <td th:text="${ladiesDenim.cretDate}">CREATED DATE</td>
 					        <td th:text="${ladiesDenim.updtDate}">UPDATED DATE</td>

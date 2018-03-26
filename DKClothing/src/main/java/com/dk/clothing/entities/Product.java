@@ -2,7 +2,10 @@ package com.dk.clothing.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Date;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import java.util.List;
 
 
@@ -21,14 +24,25 @@ public class Product extends Code implements Serializable{
 	@Column(name="product_id")
 	private Integer productId;
 
-	@Column(name="included_year")
-	private Integer includedYear;
+	@Column(name="total_items")
+	@NotNull
+	@Min(value=0, message="{totalItems.minAmount}")
+	private Integer totalItems;
 
 	@Column(name="price_per_unit")
+	@NotNull
+	@DecimalMin(value="0", message="{pricePerUnit.minPrice}")
 	private Float pricePerUnit;
 
-	@Column(name="total_items")
-	private Integer totalItems;
+	@Column(name="sales_price_per_unit")
+	@NotNull
+	@Min(value=0, message="{salesPricePerUnit.minPrice}")
+	private Float salesPricePerUnit;
+	
+	@Column(name="included_year")
+	@NotNull
+	@Min(value=2017, message="{includedYear.minYear}")
+	private Integer includedYear;	
 
 	//bi-directional many-to-one association to LadiesApparel
 	@OneToMany(mappedBy="product")
@@ -45,6 +59,7 @@ public class Product extends Code implements Serializable{
 	//bi-directional many-to-one association to ProductsColorCdtb
 	@ManyToOne
 	@JoinColumn(name="color_cd")
+	@NotNull(message="{productColor.colorValue}")
 	private ProductsColorCdtb productsColorCdtb;
 
 	//bi-directional many-to-one association to ProductsCdtb
@@ -245,4 +260,11 @@ public class Product extends Code implements Serializable{
 		this.ladiesDenimSizeCd = ladiesDenimSizeCd;
 	}
 
+	public Float getSalesPricePerUnit() {
+		return salesPricePerUnit;
+	}
+
+	public void setSalesPricePerUnit(Float salesPricePerUnit) {
+		this.salesPricePerUnit = salesPricePerUnit;
+	}
 }
