@@ -55,7 +55,7 @@
 				<form action="#" th:action="@{/addProductColor}" th:object="${productColor}" method="post">
 					<table class="table table-bordered">
 						<tr>
-							<td>Color Code* (min 1, max 2 char.):</td>
+							<td>Color Code* (min 1, max 3 char.):</td>
 			                <td><input type="text" th:field="*{colorCd}" /></td>
 			                <td th:if="${#fields.hasErrors('colorCd')}" th:errors="*{colorCd}" class="errorColorDescription">Error with Color Code</td>
 			            </tr>

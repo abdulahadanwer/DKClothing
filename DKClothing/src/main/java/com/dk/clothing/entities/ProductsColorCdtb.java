@@ -21,7 +21,7 @@ public class ProductsColorCdtb implements Serializable {
 	@Id
 	@Column(name="color_cd")
 	@NotNull
-    @Size(min=1, max=2, message="{colorCd.size}")
+    @Size(min=1, max=3, message="{colorCd.size}")
 	private String colorCd;
 
 	@Column(name="color_short_desc")
